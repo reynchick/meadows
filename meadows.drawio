@@ -1,57 +1,9 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="2">
   <diagram name="ERD" id="x455Xc48vqWjlW0iqBZ7">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2018" dy="1126" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="2" value="Ward" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="100" y="100" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="3" value="Staff" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="980" y="280" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4" value="Patient" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="520" y="250" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="5" value="Appointment" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="700" y="20" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="6" value="Bed" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="60" y="290" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="7" value="Medication" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="290" y="380" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8" value="Supply" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="500" y="400" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="9" value="Supplier" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="710" y="400" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="10" value="Requisition" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="900" y="100" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="11" value="Contains" style="edgeStyle=elbowEdgeStyle;" parent="1" source="2" target="4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="12" value="Conducts" style="edgeStyle=elbowEdgeStyle;" parent="1" source="3" target="5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="13" value="Attends" style="edgeStyle=elbowEdgeStyle;" parent="1" source="4" target="5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="14" value="Assigned To" style="edgeStyle=elbowEdgeStyle;" parent="1" source="4" target="6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="15" value="Prescribed" style="edgeStyle=elbowEdgeStyle;" parent="1" source="4" target="7" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="16" value="Provided By" style="edgeStyle=elbowEdgeStyle;" parent="1" source="8" target="9" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="17" value="Requests" style="edgeStyle=elbowEdgeStyle;" parent="1" source="2" target="10" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
