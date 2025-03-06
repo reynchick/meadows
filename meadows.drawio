@@ -52,9 +52,6 @@
         <mxCell id="17" value="Requests" style="edgeStyle=elbowEdgeStyle;" parent="1" source="2" target="10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="79UbfVzJ0Y670xwL0GEx-17" value="Boundary Object" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="930" y="635" width="220" height="200" as="geometry" />
-        </mxCell>
         <mxCell id="EnOsRe3nh_WVI1EuOtV5-17" value="kiss me by&amp;nbsp;&lt;span style=&quot;color: rgb(248, 240, 218); font-family: Arial, sans-serif; font-size: 14px; text-align: left; text-wrap-mode: nowrap; background-color: rgb(16, 18, 24);&quot;&gt;Sixpence None The Richer&lt;/span&gt;" style="triangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="470" y="560" width="360" height="350" as="geometry" />
         </mxCell>
