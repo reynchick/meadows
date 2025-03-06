@@ -1,52 +1,100 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="2">
   <diagram name="ERD" id="x455Xc48vqWjlW0iqBZ7">
-    <mxGraphModel dx="880" dy="466" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Ward" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-1" value="Ward" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="100" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Staff" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-2" value="Staff" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="300" y="100" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="4" value="Patient" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-3" value="Patient" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="500" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Appointment" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="910" y="410" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-4" value="Appointment" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="700" y="100" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="6" value="Bed" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-5" value="Bed" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="100" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Medication" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="300" y="470" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-6" value="Medication" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="300" y="250" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="8" value="Supply" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="540" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-7" value="Supply" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="500" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Supplier" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="750" y="530" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-8" value="Supplier" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="700" y="250" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="10" value="Requisition" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="900" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-9" value="Requisition" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="900" y="100" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="11" value="Contains" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-10" value="Contains" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-1" target="X2f_eMkc8F2ONDqSpN1q-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Conducts" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="3" target="5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-11" value="Conducts" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-2" target="X2f_eMkc8F2ONDqSpN1q-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="13" value="Attends" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-12" value="Attends" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-3" target="X2f_eMkc8F2ONDqSpN1q-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Assigned To" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="4" target="6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-13" value="Assigned To" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-3" target="X2f_eMkc8F2ONDqSpN1q-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="15" value="Prescribed" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="4" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-14" value="Prescribed" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-3" target="X2f_eMkc8F2ONDqSpN1q-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="16" value="Provided By" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-15" value="Provided By" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-7" target="X2f_eMkc8F2ONDqSpN1q-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Requests" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="2" target="10">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="X2f_eMkc8F2ONDqSpN1q-16" value="Requests" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="X2f_eMkc8F2ONDqSpN1q-1" target="X2f_eMkc8F2ONDqSpN1q-9">
@@ -104,7 +152,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="GX0NHrhedJoHvKqSX94F" name="Class Diagram">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1682" dy="938" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
