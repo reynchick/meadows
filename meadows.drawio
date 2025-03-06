@@ -61,9 +61,6 @@
         <mxCell id="DIH9KCpnJueFR6wMzQ9G-18" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
           <mxGeometry x="500" y="640" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="DIH9KCpnJueFR6wMzQ9G-19" value="Vertical Container" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="100" y="620" width="200" height="200" as="geometry" />
-        </mxCell>
         <mxCell id="DIH9KCpnJueFR6wMzQ9G-20" value="" style="shape=xor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="830" y="590" width="60" height="80" as="geometry" />
         </mxCell>
