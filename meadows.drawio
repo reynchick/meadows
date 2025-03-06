@@ -1,57 +1,8 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="2">
   <diagram name="ERD" id="x455Xc48vqWjlW0iqBZ7">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="39963" dy="27507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="2" value="Ward\n- wardID (PK)\n- wardName\n- location\n- totalBeds\n- telExtension" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="100" y="100" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="3" value="Staff\n- staffID (PK)\n- fName\n- lName\n- position\n- wardID (FK)" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="300" y="100" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="4" value="Patient\n- patientID (PK)\n- fName\n- lName\n- address\n- phone\n- dateOfBirth\n- sex" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="500" y="100" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="5" value="Appointment\n- appointmentID (PK)\n- patientID (FK)\n- staffID (FK)\n- appointmentDate\n- appointmentTime" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="700" y="100" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="6" value="Bed\n- bedID (PK)\n- wardID (FK)\n- patientID (FK)" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="100" y="250" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="7" value="Medication\n- medicationID (PK)\n- patientID (FK)\n- drugID (FK)\n- unitsPerDay\n- administrationMethod\n- startDate\n- endDate" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="300" y="250" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="8" value="Supply\n- supplyID (PK)\n- supplyName\n- quantityInStock\n- reorderLevel" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="500" y="250" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="9" value="Supplier\n- supplierID (PK)\n- supplierName\n- address\n- telephone" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="700" y="250" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="10" value="Requisition\n- requisitionID (PK)\n- wardID (FK)\n- staffID (FK)\n- supplyID (FK)\n- quantityRequired" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="900" y="100" width="150" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="11" value="1:M" style="edgeStyle=elbowEdgeStyle;" parent="1" source="2" target="4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="12" value="1:M" style="edgeStyle=elbowEdgeStyle;" parent="1" source="3" target="5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="13" value="1:M" style="edgeStyle=elbowEdgeStyle;" parent="1" source="4" target="5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="14" value="1:1" style="edgeStyle=elbowEdgeStyle;" parent="1" source="4" target="6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="15" value="1:M" style="edgeStyle=elbowEdgeStyle;" parent="1" source="4" target="7" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="16" value="M:1" style="edgeStyle=elbowEdgeStyle;" parent="1" source="8" target="9" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="17" value="1:M" style="edgeStyle=elbowEdgeStyle;" parent="1" source="2" target="10" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="105" value="patientID" edge="1" />
       </root>
     </mxGraphModel>
   </diagram>
