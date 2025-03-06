@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="2">
   <diagram name="ERD" id="x455Xc48vqWjlW0iqBZ7">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1009" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,25 +8,25 @@
           <mxGeometry x="100" y="100" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="3" value="Staff\n- staffID (PK)\n- fName\n- lName\n- position\n- wardID (FK)" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="880" y="250" width="150" height="100" as="geometry" />
+          <mxGeometry x="300" y="100" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="4" value="Patient\n- patientID (PK)\n- fName\n- lName\n- address\n- phone\n- dateOfBirth\n- sex" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="520" y="300" width="150" height="100" as="geometry" />
+          <mxGeometry x="500" y="100" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="5" value="Appointment\n- appointmentID (PK)\n- patientID (FK)\n- staffID (FK)\n- appointmentDate\n- appointmentTime" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="1010" y="360" width="150" height="100" as="geometry" />
+          <mxGeometry x="700" y="100" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="6" value="Bed\n- bedID (PK)\n- wardID (FK)\n- patientID (FK)" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="90" y="340" width="150" height="100" as="geometry" />
+          <mxGeometry x="100" y="250" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="7" value="Medication\n- medicationID (PK)\n- patientID (FK)\n- drugID (FK)\n- unitsPerDay\n- administrationMethod\n- startDate\n- endDate" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="300" y="480" width="150" height="100" as="geometry" />
+          <mxGeometry x="300" y="250" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="8" value="Supply\n- supplyID (PK)\n- supplyName\n- quantityInStock\n- reorderLevel" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="580" y="600" width="150" height="100" as="geometry" />
+          <mxGeometry x="500" y="250" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="9" value="Supplier\n- supplierID (PK)\n- supplierName\n- address\n- telephone" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="850" y="520" width="150" height="100" as="geometry" />
+          <mxGeometry x="700" y="250" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="10" value="Requisition\n- requisitionID (PK)\n- wardID (FK)\n- staffID (FK)\n- supplyID (FK)\n- quantityRequired" style="shape=rectangle;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="900" y="100" width="150" height="100" as="geometry" />
@@ -52,17 +52,11 @@
         <mxCell id="17" value="1:M" style="edgeStyle=elbowEdgeStyle;" parent="1" source="2" target="10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="xKV3cqMLFeuMibJpbQ8s-17" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="640" y="530" width="30" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="xKV3cqMLFeuMibJpbQ8s-18" value="HI" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" parent="1" vertex="1">
-          <mxGeometry x="600" y="440" width="120" height="80" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="GX0NHrhedJoHvKqSX94F" name="Class Diagram">
-    <mxGraphModel dx="1301" dy="1339" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
