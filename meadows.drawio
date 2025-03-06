@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="2">
   <diagram name="ERD" id="x455Xc48vqWjlW0iqBZ7">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1345" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,25 +8,25 @@
           <mxGeometry x="100" y="100" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="3" value="Staff\n- staffID (PK)\n- fName\n- lName\n- position\n- wardID (FK)" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="300" y="100" width="150" height="100" as="geometry" />
+          <mxGeometry x="880" y="250" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="4" value="Patient\n- patientID (PK)\n- fName\n- lName\n- address\n- phone\n- dateOfBirth\n- sex" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="500" y="100" width="150" height="100" as="geometry" />
+          <mxGeometry x="520" y="300" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="5" value="Appointment\n- appointmentID (PK)\n- patientID (FK)\n- staffID (FK)\n- appointmentDate\n- appointmentTime" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="700" y="100" width="150" height="100" as="geometry" />
+          <mxGeometry x="1010" y="360" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="6" value="Bed\n- bedID (PK)\n- wardID (FK)\n- patientID (FK)" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="100" y="250" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="7" value="Medication\n- medicationID (PK)\n- patientID (FK)\n- drugID (FK)\n- unitsPerDay\n- administrationMethod\n- startDate\n- endDate" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="300" y="250" width="150" height="100" as="geometry" />
+          <mxGeometry x="300" y="480" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="8" value="Supply\n- supplyID (PK)\n- supplyName\n- quantityInStock\n- reorderLevel" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="500" y="250" width="150" height="100" as="geometry" />
+          <mxGeometry x="580" y="600" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="9" value="Supplier\n- supplierID (PK)\n- supplierName\n- address\n- telephone" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="700" y="250" width="150" height="100" as="geometry" />
+          <mxGeometry x="850" y="520" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="10" value="Requisition\n- requisitionID (PK)\n- wardID (FK)\n- staffID (FK)\n- supplyID (FK)\n- quantityRequired" style="shape=rectangle;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="900" y="100" width="150" height="100" as="geometry" />
@@ -56,7 +56,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="GX0NHrhedJoHvKqSX94F" name="Class Diagram">
-    <mxGraphModel dx="2200" dy="1165" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1682" dy="938" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
