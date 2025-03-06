@@ -65,7 +65,7 @@
           <mxGeometry x="830" y="590" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="79UbfVzJ0Y670xwL0GEx-17" value="Boundary Object" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1170" y="740" width="170" height="170" as="geometry" />
+          <mxGeometry x="1070" y="740" width="270" height="170" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
