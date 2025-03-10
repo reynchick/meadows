@@ -26,7 +26,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="FwgIyG6rxchZYfI2BEFq" name="ERD">
-    <mxGraphModel dx="3331" dy="331" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3244" dy="294" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1815,14 +1815,9 @@
             <mxPoint x="-1520" y="1550" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="e9K3BnQNxf3C7PeMaJt6-3" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="RK_SZq3Hl_zvfWDcgQbw-4">
-          <mxGeometry x="0.0042" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="e9K3BnQNxf3C7PeMaJt6-4" value="supplies" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="RK_SZq3Hl_zvfWDcgQbw-4">
           <mxGeometry x="-0.0078" y="6" relative="1" as="geometry">
-            <mxPoint x="8" as="offset" />
+            <mxPoint x="4" y="-6" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="uIJsLvZF6IvkFTDCP-Wm-1498" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.467;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="uIJsLvZF6IvkFTDCP-Wm-2" target="uIJsLvZF6IvkFTDCP-Wm-206" edge="1">
@@ -2046,6 +2041,9 @@
               <mxPoint x="-550" y="518" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="a9Oi3tFsc3MU7MiTiRd7-21" value="is assigned to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fillColor=light-dark(transparent,#FF0000);" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-540" y="570" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
