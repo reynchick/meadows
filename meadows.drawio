@@ -25,7 +25,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="FwgIyG6rxchZYfI2BEFq" name="ERD">
+  <diagram id="FwgIyG6rxchZYfI2BEFq" name="logical ERD">
     <mxGraphModel dx="3811" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -2065,8 +2065,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="Copy of ERD" id="hatfhIvgOY0As_ccyhfE">
-    <mxGraphModel dx="3895" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <diagram name="conceptual ERD" id="hatfhIvgOY0As_ccyhfE">
+    <mxGraphModel dx="4792" dy="1251" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="HytVhv92CFkx2aA87ZXU-0" />
         <mxCell id="HytVhv92CFkx2aA87ZXU-1" parent="HytVhv92CFkx2aA87ZXU-0" />
