@@ -2057,7 +2057,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="a9Oi3tFsc3MU7MiTiRd7-21" value="is assigned to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fillColor=light-dark(transparent,#FF0000);" parent="1" connectable="0" vertex="1">
-          <mxGeometry x="-540" y="570" as="geometry" />
+          <mxGeometry x="-550" y="570" as="geometry" />
         </mxCell>
         <mxCell id="PXHYSrJ3DNj5bir5zULd-1" value="managed by" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
           <mxGeometry x="-1877.5011764705882" y="600.004332076695" as="geometry" />
