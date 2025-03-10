@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.0" pages="4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.0" pages="5">
   <diagram id="GX0NHrhedJoHvKqSX94F" name="Class Diagram">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -26,7 +26,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="FwgIyG6rxchZYfI2BEFq" name="logical ERD">
-    <mxGraphModel dx="3811" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="4790" dy="932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2059,7 +2059,7 @@
         <mxCell id="a9Oi3tFsc3MU7MiTiRd7-21" value="is assigned to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fillColor=light-dark(transparent,#FF0000);" parent="1" connectable="0" vertex="1">
           <mxGeometry x="-550" y="570" as="geometry" />
         </mxCell>
-        <mxCell id="PXHYSrJ3DNj5bir5zULd-1" value="managed by" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+        <mxCell id="PXHYSrJ3DNj5bir5zULd-1" value="managed by" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="-1877.5011764705882" y="600.004332076695" as="geometry" />
         </mxCell>
       </root>
@@ -4101,6 +4101,112 @@
         </mxCell>
         <mxCell id="HytVhv92CFkx2aA87ZXU-439" value="managed by" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HytVhv92CFkx2aA87ZXU-1">
           <mxGeometry x="-1877.5011764705882" y="600.004332076695" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="VAWSS8wr5T6afgG8z-1P" name="Page-5">
+    <mxGraphModel dx="982" dy="1945" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-1" value="Patient" vertex="1" parent="1">
+          <mxGeometry x="810" y="-110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-2" value="Staff" vertex="1" parent="1">
+          <mxGeometry x="470" y="-410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-3" value="Appointment" vertex="1" parent="1">
+          <mxGeometry x="640" y="-260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-4" value="Ward" vertex="1" parent="1">
+          <mxGeometry x="270" y="-250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-5" value="Bed" vertex="1" parent="1">
+          <mxGeometry x="270" y="-70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-6" value="Medication" vertex="1" parent="1">
+          <mxGeometry x="710" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-7" value="Supplier" vertex="1" parent="1">
+          <mxGeometry x="70" y="-70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-8" value="NextOfKin" vertex="1" parent="1">
+          <mxGeometry x="810" y="-240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-9" value="WardRequisition" vertex="1" parent="1">
+          <mxGeometry x="470" y="-110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-10" value="PharmaceuticalSupply" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-11" value="SurgicalNonSurgicalSupply" vertex="1" parent="1">
+          <mxGeometry x="445" y="220" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-12" value="LocalDoctor" vertex="1" parent="1">
+          <mxGeometry x="920" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-13" value="WardRequisitionItem" vertex="1" parent="1">
+          <mxGeometry x="470" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-14" value="SupplierSupplies" vertex="1" parent="1">
+          <mxGeometry x="160" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-15" value="has" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-1" target="Xl7XeMEjRkKIj_cvwXj2-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-16" value="places" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-1" target="Xl7XeMEjRkKIj_cvwXj2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-17" value="conducts" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-2" target="Xl7XeMEjRkKIj_cvwXj2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-18" value="contains" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-4" target="Xl7XeMEjRkKIj_cvwXj2-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-19" value="is received by" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-9" target="Xl7XeMEjRkKIj_cvwXj2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-20" value="is administered by" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-6" target="Xl7XeMEjRkKIj_cvwXj2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-21" value="supplies" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-7" target="Xl7XeMEjRkKIj_cvwXj2-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-22" value="supplies" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-7" target="Xl7XeMEjRkKIj_cvwXj2-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-23" value="refers" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-1" target="Xl7XeMEjRkKIj_cvwXj2-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-24" value="managed by" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-4" target="Xl7XeMEjRkKIj_cvwXj2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-25" value="is prescribed with" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-1" target="Xl7XeMEjRkKIj_cvwXj2-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-26" value="places" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-2" target="Xl7XeMEjRkKIj_cvwXj2-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-27" value="consists" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-9" target="Xl7XeMEjRkKIj_cvwXj2-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-28" value="includes" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-13" target="Xl7XeMEjRkKIj_cvwXj2-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-29" value="includes" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-13" target="Xl7XeMEjRkKIj_cvwXj2-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-30" value="provides" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-7" target="Xl7XeMEjRkKIj_cvwXj2-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-31" value="is added to" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-14" target="Xl7XeMEjRkKIj_cvwXj2-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xl7XeMEjRkKIj_cvwXj2-32" value="is added to" edge="1" parent="1" source="Xl7XeMEjRkKIj_cvwXj2-14" target="Xl7XeMEjRkKIj_cvwXj2-10">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
