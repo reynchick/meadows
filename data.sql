@@ -1,4 +1,0 @@
-gloren
-joy 
-enopia 
-roque
