@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2025 at 06:21 PM
+-- Generation Time: Mar 11, 2025 at 02:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,289 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `wellmeadows`
 --
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddInpatient` (IN `p_patientID` INT, IN `p_wardID` INT, IN `p_datePlacedOnWaitlist` DATE, IN `p_wardRequired` VARCHAR(100), IN `p_expectedDaysToStay` INT, IN `p_dateAdmittedInWard` DATE, IN `p_expectedLeave` DATE, IN `p_actualLeave` DATE, IN `p_bedID` INT)   BEGIN
-    -- Check if patient exists in the patient table and is an inpatient
-    IF NOT EXISTS (SELECT 1 FROM patient WHERE patientID = p_patientID AND patientType = 'Inpatient') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Error: Patient does not exist or is not an Inpatient';
-    END IF;
-
-    -- Check if ward exists in the ward table
-    IF NOT EXISTS (SELECT 1 FROM ward WHERE wardID = p_wardID) THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Error: Ward does not exist';
-    END IF;
-
-    -- Check if patient already has an inpatient record
-    IF EXISTS (SELECT 1 FROM inpatient WHERE patientID = p_patientID) THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Error: Inpatient record already exists for this patient';
-    END IF;
-
-    -- Insert into inpatient table
-    INSERT INTO inpatient (patientID, wardID, datePlacedOnWaitlist, wardRequired, expectedDaysToStay, 
-                           dateAdmittedInWard, expectedLeave, actualLeave, bedID)
-    VALUES (p_patientID, p_wardID, p_datePlacedOnWaitlist, p_wardRequired, p_expectedDaysToStay, 
-            p_dateAdmittedInWard, p_expectedLeave, p_actualLeave, p_bedID);
-
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddMedication` (IN `p_medicationID` INT, IN `p_patientID` INT, IN `p_drugID` INT, IN `p_unitsPerDay` INT, IN `p_administrationMethod` VARCHAR(50), IN `p_startDate` DATE, IN `p_endDate` DATE)   BEGIN
-    INSERT INTO medication (medicationID, patientID, drugID, unitsPerDay, administrationMethod, startDate, endDate)
-    VALUES (p_medicationID, p_patientID, p_drugID, p_unitsPerDay, p_administrationMethod, p_startDate, p_endDate);
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddPatient` (IN `p_patientID` INT, IN `p_fName` VARCHAR(50), IN `p_lName` VARCHAR(50), IN `p_patientType` ENUM('Inpatient','Outpatient'), IN `p_address` TEXT, IN `p_phone` VARCHAR(20), IN `p_dateOfBirth` DATE, IN `p_sex` ENUM('Male','Female','Other'), IN `p_maritalStatus` VARCHAR(50), IN `p_dateRegistered` DATE, IN `p_clinicID` INT, IN `p_wardID` INT, IN `p_wardRequired` VARCHAR(100), IN `p_expectedDaysToStay` INT, IN `p_dateAdmittedInWard` DATE, IN `p_expectedLeave` DATE, IN `p_actualLeave` DATE, IN `p_bedID` INT, IN `p_appointmentDate` DATE, IN `p_appointmentTime` TIME)   BEGIN
-    -- Step 1: Check if patientID already exists
-    IF EXISTS (SELECT 1 FROM patient WHERE patientID = p_patientID) THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Error: patientID already exists';
-    ELSE
-        -- Step 2: Insert into patient table
-        INSERT INTO patient (patientID, fName, lName, patientType, address, phone, dateOfBirth, sex, maritalStatus, dateRegistered, clinicID)
-        VALUES (p_patientID, p_fName, p_lName, p_patientType, p_address, p_phone, p_dateOfBirth, p_sex, p_maritalStatus, p_dateRegistered, p_clinicID);
-
-        -- Step 3: If the patient is an inpatient, insert into inpatient table
-        IF p_patientType = 'Inpatient' THEN
-            INSERT INTO inpatient (patientID, wardID, datePlacedOnWaitlist, wardRequired, expectedDaysToStay, 
-                                   dateAdmittedInWard, expectedLeave, actualLeave, bedID)
-            VALUES (p_patientID, p_wardID, CURDATE(), p_wardRequired, p_expectedDaysToStay, 
-                    p_dateAdmittedInWard, p_expectedLeave, p_actualLeave, p_bedID);
-        END IF;
-
-        -- Step 4: If the patient is an outpatient, insert into outpatient table
-        IF p_patientType = 'Outpatient' THEN
-            INSERT INTO outpatient (patientID, appointmentDate, appointmentTime)
-            VALUES (p_patientID, p_appointmentDate, p_appointmentTime);
-        END IF;
-    END IF;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddStaff` (IN `p_staffID` INT, IN `p_fName` VARCHAR(50), IN `p_lName` VARCHAR(50), IN `p_address` TEXT, IN `p_telephone` VARCHAR(20), IN `p_dateOfBirth` DATE, IN `p_sex` ENUM('Male','Female','Other'), IN `p_nationalInsuranceNumber` VARCHAR(20), IN `p_position` VARCHAR(50), IN `p_currentSalary` DECIMAL(10,2), IN `p_salaryScale` VARCHAR(50), IN `p_contractType` ENUM('Permanent','Temporary'), IN `p_hoursPerWeek` INT, IN `p_paymentType` ENUM('Weekly','Monthly'), IN `p_wardID` INT)   BEGIN
-    INSERT INTO staff (staffID, fName, lName, address, telephone, dateOfBirth, sex, nationalInsuranceNumber, position, currentSalary, salaryScale, contractType, hoursPerWeek, paymentType, wardID)
-    VALUES ( p_staffID, p_fName, p_lName, p_address, p_telephone, p_dateOfBirth, p_sex, p_nationalInsuranceNumber, p_position, p_currentSalary, p_salaryScale, p_contractType, p_hoursPerWeek, p_paymentType, p_wardID);
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddSupplier` (IN `p_supplierID` INT, IN `p_supplierName` VARCHAR(100), IN `p_address` TEXT, IN `p_telephone` VARCHAR(20), IN `p_fax` VARCHAR(20))   BEGIN
-    INSERT INTO supplier (supplierID, supplierName, address, telephone, fax)
-    VALUES (p_supplierID, p_supplierName, p_address, p_telephone, p_fax);
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddWardRequisition` (IN `p_requisitionID` INT, IN `p_staffIDPlacingReq` INT, IN `p_wardID` INT, IN `p_receivedBy` INT, IN `p_dateOrdered` DATE, IN `p_dateReceived` DATE)   BEGIN
-    -- Ensure foreign key constraints are met
-    IF NOT EXISTS (SELECT 1 FROM staff WHERE staffID = p_staffIDPlacingReq) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Staff placing request does not exist.';
-    END IF;
-    IF NOT EXISTS (SELECT 1 FROM ward WHERE wardID = p_wardID) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Ward does not exist.';
-    END IF;
-    IF p_receivedBy IS NOT NULL AND NOT EXISTS (SELECT 1 FROM chargeNurse WHERE staffID = p_receivedBy) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Receiving charge nurse does not exist.';
-    END IF;
-    IF p_dateReceived IS NOT NULL AND p_dateReceived < p_dateOrdered THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: dateReceived cannot be before dateOrdered.';
-    END IF;
-
-    -- Ensure requisitionID does not already exist
-    IF EXISTS (SELECT 1 FROM wardRequisition WHERE requisitionID = p_requisitionID) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: requisitionID already exists.';
-    END IF;
-
-    -- Insert into wardRequisition with manual requisitionID
-    INSERT INTO wardRequisition (requisitionID, staffIDPlacingReq, wardID, receivedBy, dateOrdered, dateReceived)
-    VALUES (p_requisitionID, p_staffIDPlacingReq, p_wardID, p_receivedBy, p_dateOrdered, p_dateReceived);
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteMedication` (IN `p_medicationID` INT)   BEGIN
-    DELETE FROM medication WHERE medicationID = p_medicationID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteStaff` (IN `p_staffID` INT)   BEGIN
-    DELETE FROM staff WHERE staffID = p_staffID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteSupplier` (IN `p_supplierID` INT)   BEGIN
-    DELETE FROM supplier WHERE supplierID = p_supplierID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteWardRequisition` (IN `p_requisitionID` INT)   BEGIN
-    -- Validate requisition exists before deleting
-    IF NOT EXISTS (SELECT 1 FROM wardRequisition WHERE requisitionID = p_requisitionID) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Requisition does not exist.';
-    END IF;
-
-    DELETE FROM wardRequisition WHERE requisitionID = p_requisitionID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetOutpatientReport` ()   BEGIN
-    SELECT p.patientID, p.fName, p.lName, p.patientType, p.address, p.phone, 
-           p.dateRegistered, o.appointmentDate, o.appointmentTime
-    FROM patient p
-    JOIN outpatient o ON p.patientID = o.patientID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetPatientMedication` (IN `p_patientID` INT)   BEGIN
-    SELECT m.medicationID, m.patientID, p.fName, p.lName, ps.drugName, m.unitsPerDay, m.administrationMethod, m.startDate, m.endDate
-    FROM medication m
-    JOIN patient p ON m.patientID = p.patientID
-    JOIN pharmaSupply ps ON m.drugID = ps.drugID
-    WHERE m.patientID = p_patientID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetSupplyReport` ()   BEGIN
-    SELECT wr.requisitionID, wr.dateOrdered, wr.dateReceived, 
-           w.wardID, w.wardName, w.location,
-           sri.itemID, sns.supplyName, sri.drugID, ps.drugName, 
-           sri.quantityRequired, sri.costPerUnit
-    FROM wardRequisition wr
-    JOIN ward w ON wr.wardID = w.wardID
-    JOIN wardRequisitionItem sri ON wr.requisitionID = sri.requisitionID
-    LEFT JOIN surgNonSurgSupply sns ON sri.itemID = sns.itemID
-    LEFT JOIN pharmaSupply ps ON sri.drugID = ps.drugID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetWaitingList` (IN `p_wardID` INT)   BEGIN
-    SELECT p.patientID, p.fName, p.lName, p.patientType, i.datePlacedOnWaitlist, i.wardRequired
-    FROM inpatient i
-    JOIN patient p ON i.patientID = p.patientID
-    WHERE i.wardID = p_wardID AND i.dateAdmittedInWard IS NULL;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetWardPatients` (IN `p_wardID` INT)   BEGIN
-    SELECT p.patientID, p.fName, p.lName, p.patientType, w.wardName, b.bedID
-    FROM patient p
-    JOIN inpatient i ON p.patientID = i.patientID
-    JOIN ward w ON i.wardID = w.wardID
-    LEFT JOIN bed b ON i.bedID = b.bedID
-    WHERE w.wardID = p_wardID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetWardStaffReport` ()   BEGIN
-    SELECT s.staffID, s.fName, s.lName, s.position, w.wardID, w.wardName, w.location
-    FROM staff s
-    LEFT JOIN ward w ON s.wardID = w.wardID
-    WHERE s.wardID IS NOT NULL;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ManageOutpatient` (IN `p_patientID` INT, IN `p_appointmentDate` DATE, IN `p_appointmentTime` TIME)   BEGIN
-    DECLARE patientExists INT;
-
-    -- Check if the patient exists in the patient table
-    SELECT COUNT(*) INTO patientExists FROM patient WHERE patientID = p_patientID AND patientType = 'Outpatient';
-
-    -- If patient does not exist, raise an error
-    IF patientExists = 0 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Patient does not exist or is not an outpatient.';
-    END IF;
-
-    -- Start transaction
-    START TRANSACTION;
-
-    -- Check if the patient already has an appointment
-    IF EXISTS (SELECT * FROM outpatient WHERE patientID = p_patientID) THEN
-        -- Update appointment if it already exists
-        UPDATE outpatient
-        SET appointmentDate = p_appointmentDate, appointmentTime = p_appointmentTime
-        WHERE patientID = p_patientID;
-    ELSE
-        -- Insert new outpatient record if no appointment exists
-        INSERT INTO outpatient (patientID, appointmentDate, appointmentTime)
-        VALUES (p_patientID, p_appointmentDate, p_appointmentTime);
-    END IF;
-
-    -- Commit transaction
-    COMMIT;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SearchPatient` (IN `p_fName` VARCHAR(50), IN `p_lName` VARCHAR(50))   BEGIN
-    -- Select patient details
-    SELECT p.*, 
-           (CASE 
-                WHEN i.patientID IS NOT NULL THEN 'Inpatient'
-                WHEN o.patientID IS NOT NULL THEN 'Outpatient'
-                ELSE 'Unknown' 
-            END) AS Patient_Status
-    FROM patient p
-    LEFT JOIN inpatient i ON p.patientID = i.patientID
-    LEFT JOIN outpatient o ON p.patientID = o.patientID
-    WHERE p.fName LIKE CONCAT('%', p_fName, '%')
-      AND p.lName LIKE CONCAT('%', p_lName, '%');
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateInpatient` (IN `p_patientID` INT, IN `p_wardID` INT, IN `p_bedID` INT, IN `p_dateAdmittedInWard` DATE, IN `p_expectedLeave` DATE, IN `p_actualLeave` DATE)   BEGIN
-    UPDATE inpatient
-    SET wardID = p_wardID, bedID = p_bedID, dateAdmittedInWard = p_dateAdmittedInWard, expectedLeave = p_expectedLeave, actualLeave = p_actualLeave
-    WHERE patientID = p_patientID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateMedication` (IN `p_medicationID` INT, IN `p_patientID` INT, IN `p_drugID` INT, IN `p_unitsPerDay` INT, IN `p_administrationMethod` VARCHAR(50), IN `p_startDate` DATE, IN `p_endDate` DATE)   BEGIN
-    UPDATE medication
-    SET patientID = p_patientID,
-        drugID = p_drugID,
-        unitsPerDay = p_unitsPerDay,
-        administrationMethod = p_administrationMethod,
-        startDate = p_startDate,
-        endDate = p_endDate
-    WHERE medicationID = p_medicationID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdatePatient` (IN `p_patientID` INT, IN `p_fName` VARCHAR(50), IN `p_lName` VARCHAR(50), IN `p_patientType` ENUM('Inpatient','Outpatient'), IN `p_address` TEXT, IN `p_phone` VARCHAR(20), IN `p_dateOfBirth` DATE, IN `p_sex` ENUM('Male','Female','Other'), IN `p_maritalStatus` VARCHAR(50), IN `p_dateRegistered` DATE, IN `p_clinicID` INT, IN `p_nextOfKinID` INT)   BEGIN
-    UPDATE patient
-    SET fName = p_fName,
-        lName = p_lName,
-        patientType = p_patientType,
-        address = p_address,
-        phone = p_phone,
-        dateOfBirth = p_dateOfBirth,
-        sex = p_sex,
-        maritalStatus = p_maritalStatus,
-        dateRegistered = p_dateRegistered,
-        clinicID = p_clinicID,
-        nextOfKinID = p_nextOfKinID
-    WHERE patientID = p_patientID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateStaff` (IN `p_staffID` INT, IN `p_address` TEXT, IN `p_telephone` VARCHAR(20), IN `p_currentSalary` DECIMAL(10,2), IN `p_salaryScale` VARCHAR(50))   BEGIN
-    UPDATE staff
-    SET address = p_address, telephone = p_telephone, currentSalary = p_currentSalary, salaryScale = p_salaryScale
-    WHERE staffID = p_staffID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateSupplier` (IN `p_supplierID` INT, IN `p_supplierName` VARCHAR(100), IN `p_address` TEXT, IN `p_telephone` VARCHAR(20), IN `p_fax` VARCHAR(20))   BEGIN
-    UPDATE supplier
-    SET supplierName = p_supplierName, address = p_address, telephone = p_telephone, fax = p_fax
-    WHERE supplierID = p_supplierID;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateWardRequisition` (IN `p_requisitionID` INT, IN `p_receivedBy` INT, IN `p_dateReceived` DATE)   BEGIN
-    -- Validate requisition exists
-    IF NOT EXISTS (SELECT 1 FROM wardRequisition WHERE requisitionID = p_requisitionID) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Requisition does not exist.';
-    END IF;
-
-    -- Validate receivedBy exists in chargeNurse
-    IF NOT EXISTS (SELECT 1 FROM chargeNurse WHERE staffID = p_receivedBy) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Receiving charge nurse does not exist.';
-    END IF;
-
-    -- Ensure dateReceived is not before dateOrdered
-    IF (SELECT dateOrdered FROM wardRequisition WHERE requisitionID = p_requisitionID) > p_dateReceived THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: dateReceived cannot be before dateOrdered.';
-    END IF;
-
-    -- Update requisition
-    UPDATE wardRequisition
-    SET receivedBy = p_receivedBy, dateReceived = p_dateReceived
-    WHERE requisitionID = p_requisitionID;
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -649,11 +366,7 @@ INSERT INTO `inpatient` (`patientID`, `wardID`, `datePlacedOnWaitlist`, `wardReq
 (3, 2, '2025-03-08', 'Cardiology', 7, '2025-03-09', '2025-03-16', '2025-03-15', 16),
 (5, 3, '2025-03-07', 'Neurology', 10, '2025-03-08', '2025-03-18', '2025-03-17', 27),
 (7, 4, '2025-03-06', 'Pediatrics', 4, '2025-03-07', '2025-03-11', '2025-03-10', 41),
-(9, 5, '2025-03-05', 'Oncology', 6, '2025-03-06', '2025-03-12', '2025-03-11', 54),
-(201, 2, '2025-03-12', 'Cardiology', 7, '2025-03-10', '2025-03-17', NULL, 101),
-(401, 1, '2025-03-12', 'Orthopaedic', 14, '2025-04-02', '2025-04-20', '2025-04-18', 2),
-(601, 1, '2025-03-12', 'Orthopaedic', 7, NULL, NULL, NULL, NULL),
-(602, 1, '2025-03-12', 'Orthopaedic', 10, NULL, NULL, NULL, NULL);
+(9, 5, '2025-03-05', 'Oncology', 6, '2025-03-06', '2025-03-12', '2025-03-11', 54);
 
 -- --------------------------------------------------------
 
@@ -764,12 +477,11 @@ CREATE TABLE `outpatient` (
 --
 
 INSERT INTO `outpatient` (`patientID`, `appointmentDate`, `appointmentTime`) VALUES
-(2, '2025-04-25', '10:10:10'),
+(2, '2025-03-12', '10:00:00'),
 (4, '2025-03-14', '11:30:00'),
 (6, '2025-03-16', '09:45:00'),
 (8, '2025-03-18', '14:15:00'),
-(10, '2025-03-20', '16:00:00'),
-(202, '2025-03-15', '10:00:00');
+(10, '2025-03-20', '16:00:00');
 
 -- --------------------------------------------------------
 
@@ -806,14 +518,7 @@ INSERT INTO `patient` (`patientID`, `fName`, `lName`, `patientType`, `address`, 
 (7, 'Miguel', 'Hernandez', 'Inpatient', '12 George Square, Glasgow, Scotland, UK', '+44 141 654 7890', '1975-07-19', 'Male', 'Married', '2025-03-04', 7, 7),
 (8, 'Catherine', 'Lopez', 'Outpatient', '70 Castle Hill, Windsor, England, UK', '+44 1753 567 4321', '1995-11-11', 'Female', 'Single', '2025-03-03', 8, 8),
 (9, 'Ricardo', 'Fernandez', 'Inpatient', '88 Hope Street, Bristol, England, UK', '+44 117 222 3333', '1969-05-07', 'Male', 'Married', '2025-03-02', 9, 9),
-(10, 'Samantha', 'Velasquez', 'Outpatient', '15 Royal Crescent, Bath, England, UK', '+44 1225 789 4567', '1988-03-27', 'Female', 'Divorced', '2025-03-01', 10, 10),
-(201, 'Jane', 'Smith', 'Outpatient', '456 Oak St', '555-1111', '1995-08-20', 'Female', 'Married', '2025-03-12', 4, NULL),
-(202, 'John', 'Smith', 'Outpatient', '456 Oak St', '555-1234', '1990-01-01', 'Male', 'Married', '2025-03-12', 5, NULL),
-(401, 'Emily', 'Davis', 'Inpatient', '789 Birch St', '555-9876', '1990-07-21', 'Female', 'Single', '2025-03-12', 3, NULL),
-(601, 'Alice', 'Johnson', 'Inpatient', '123 Elm St', '555-1212', '1992-06-15', 'Female', 'Single', '2025-03-12', 2, NULL),
-(602, 'Bob', 'Williams', 'Inpatient', '456 Pine St', '555-2323', '1988-09-20', 'Male', 'Married', '2025-03-12', 3, NULL),
-(603, 'Charlie', 'Brown', 'Inpatient', '789 Oak St', '555-3434', '1995-02-10', 'Male', 'Single', '2025-03-12', 4, NULL),
-(701, 'David', 'Miller', 'Inpatient', '123 Aspen St', '555-9191', '1990-12-01', 'Male', 'Married', '2025-03-13', 2, NULL);
+(10, 'Samantha', 'Velasquez', 'Outpatient', '15 Royal Crescent, Bath, England, UK', '+44 1225 789 4567', '1988-03-27', 'Female', 'Divorced', '2025-03-01', 10, 10);
 
 -- --------------------------------------------------------
 
@@ -878,8 +583,7 @@ INSERT INTO `pharmasupply` (`drugID`, `drugName`, `description`, `dosage`, `admi
 (7, 'Ceftriaxone', 'Broad-spectrum antibiotic', '1g', 'Injection', 200, 50, 10.00),
 (8, 'Loperamide', 'Treats diarrhea', '2mg', 'Oral', 400, 100, 0.80),
 (9, 'Diphenhydramine', 'Antihistamine for allergy relief', '25mg', 'Oral', 450, 100, 1.25),
-(10, 'Hydrocortisone Cream', 'Topical steroid for inflammation and allergies', '1%', 'Topical', 350, 75, 3.50),
-(301, 'Paracetamol', 'Pain Reliever', '500mg', 'Oral', 100, 10, 5.00);
+(10, 'Hydrocortisone Cream', 'Topical steroid for inflammation and allergies', '1%', 'Topical', 350, 75, 3.50);
 
 -- --------------------------------------------------------
 
@@ -1291,7 +995,6 @@ CREATE TABLE `wardrequisition` (
 --
 
 INSERT INTO `wardrequisition` (`requisitionID`, `staffIDPlacingReq`, `wardID`, `receivedBy`, `dateOrdered`, `dateReceived`) VALUES
-(0, 11, 5, NULL, '2025-03-15', NULL),
 (1, 20, 3, 3, '2025-03-01', '2025-03-02'),
 (2, 21, 4, 4, '2025-03-03', '2025-03-04'),
 (3, 22, 5, 5, '2025-03-05', '2025-03-06'),
